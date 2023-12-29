@@ -3,6 +3,8 @@
 Jenkins best videos :
 https://www.youtube.com/watch?v=WqFyN8LvRNI&list=PLvBBnHmZuNQJeznYL2F-MpZYBUeLIXYEe
 
+https://github.com/mjah/kubernetes-jenkins-cicd-pipeline-example/tree/master
+
 Jenkins New Starting                                                                                                            
 
 Day-1 :
@@ -371,13 +373,7 @@ Module 8: Jenkins Plugins and Integrations
 	 8.4 Notifications and Reporting in Jenkins	 
 	 
 	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+	 	 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
 Gaurav Sharma :
@@ -488,9 +484,49 @@ Multiple Plugins :
 		  }
 	
 	
-    3. Jenkins With K8s
-    4. Jenkins With SonarQube
+    3. Jenkins With K8s :
+	       https://github.com/mjah/kubernetes-jenkins-cicd-pipeline-example/tree/master
+	
+    4. Jenkins With SonarQube :
+	       1. First create an SonarQube server. Create an sonar token as User > My Account > Security > Generate Tokens
+		   2. Configurate SonarQube webhook for quality gate
+              Administration > Configuration > Webhooks > Create
+              The URL should point to your Jenkins server http://{JENKINS_HOST}/sonarqube-webhook/
+		   3. Setup SonarQube server at Jenkins
+              Manage Jenkins > Configure System > SonarQube servers
+              Enter you SonarQube server host and the token generated at previous step.
+           4. Setup SonarQube scanner at Jenkins
+              Manage Jenkins > Global Tool Configuration > SonarQube Scanner
+              Remember to give it a name, let’s take SonarQubeScanner as example here.
+           5. Setup SonarQube scan stage in declarative pipeline Jenkinsfile
+		      (https://medium.com/@rosaniline/setup-sonarqube-with-jenkins-declarative-pipeline-75bccdc9075f)
+			  
+                stage('Sonarqube') {
+                  environment {
+                     scannerHome = tool 'SonarQubeScanner'
+                  }
+                  steps {
+                    withSonarQubeEnv('sonarqube') {
+                       sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                    timeout(time: 10, unit: 'MINUTES') {
+                      waitForQualityGate abortPipeline: true
+                    }
+                 }
+               }
+-----------------------------------------------------------------------------------------------------------
+                stage ('Scan and Build Jar File') {
+                  steps {
+                    withSonarQubeEnv(installationName: 'Production SonarQubeScanner', credentialsId: 'SonarQubeToken') {
+                    sh 'mvn clean package sonar:sonar'
+                }
+                }
+              }			   
+-------------------------------------------------------------------------------------------------------------	
+	
     5. Jenkins With Ansible
+	6. Jenkins With Maven
+	7. 
     
 
 All Plugins that are used :
@@ -1044,8 +1080,9 @@ Jenkins Interview Questions :
 	   But if we used seperate instance then it can seat ideal if not in use & can permanently take the OS (RAM/ROM) from 
 	   parent server.	 
 
-
-
+37. What is a CI/CD Pipeline?
+       CI/CD stands for Continuous Integration/Continuous Delivery and/or Deployment. A (CI/CD) pipeline is a series of processes 
+	   used to accelerate the development and deployment of software applications. 
 
 
 
