@@ -23,8 +23,7 @@ Step 2 : Integrate Maven to Jenkins and Add GitHub Credentials to Jenkins :
   
   
 Step 3 : Create Pipeline Script(Jenkinsfile) for Build & Test Artifacts and Create CI Job on Jenkins :
-         # Step 4 also added here. I have divided the pipeline according to steps.
-#		 
+         # Step 4 also added here. I have divided the pipeline according to steps.		 
 pipeline {
   agent { label: 'Jenkins-Agent'}
   tools {
