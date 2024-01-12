@@ -24,15 +24,16 @@ Step 2 : Integrate Maven to Jenkins and Add GitHub Credentials to Jenkins :
   
 Step 3 : Create Pipeline Script(Jenkinsfile) for Build & Test Artifacts and Create CI Job on Jenkins :
          # Step 4 also added here. I have divided the pipeline according to steps.		 
+
 pipeline {
   agent { label: 'Jenkins-Agent'}
   tools {
-    jdk 'Java'       # The name given in manage jenkins - configuration tools 
-	maven 'Maven3'   # The name given in manage jenkins - configuration tools 
+      jdk 'Java'       # The name given in manage jenkins - configuration tools 
+      maven 'Maven3'   # The name given in manage jenkins - configuration tools 
   }
   environment {
     NAME = 'Gloabl_Variable'
-	APP_NAME = "register-app-pipeline"
+    APP_NAME = "register-app-pipeline"
     RELEASE = "1.0.0"
     DOCKER_USER = "ashfaque9x"
     DOCKER_PASS = 'dockerhub'
