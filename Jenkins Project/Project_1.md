@@ -25,54 +25,54 @@ Step 2 : Integrate Maven to Jenkins and Add GitHub Credentials to Jenkins :
 Step 3 : Create Pipeline Script(Jenkinsfile) for Build & Test Artifacts and Create CI Job on Jenkins :
          # Step 4 also added here. I have divided the pipeline according to steps.		 
 
-pipeline {
-  agent { label: 'Jenkins-Agent'}
-  tools {
-      jdk 'Java'       # The name given in manage jenkins - configuration tools 
-      maven 'Maven3'   # The name given in manage jenkins - configuration tools 
-  }
-  environment {
-    NAME = 'Gloabl_Variable'
-    APP_NAME = "register-app-pipeline"
-    RELEASE = "1.0.0"
-    DOCKER_USER = "ashfaque9x"
-    DOCKER_PASS = 'dockerhub'
-    IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
-    IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
-	JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
-  }
+      pipeline {
+        agent { label: 'Jenkins-Agent'}
+        tools {
+           jdk 'Java'       # The name given in manage jenkins - configuration tools 
+           maven 'Maven3'   # The name given in manage jenkins - configuration tools 
+         }
+        environment {
+           NAME = 'Gloabl_Variable'
+           APP_NAME = "register-app-pipeline"
+           RELEASE = "1.0.0"
+           DOCKER_USER = "ashfaque9x"
+           DOCKER_PASS = 'dockerhub'
+           IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
+           IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
+	   JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
+         }
   
-  stages {
-    stage ("CleanUp Stage"){
-	  steps {
-	    cleanWs()
+        stages {
+          stage ("CleanUp Stage"){
+	   steps {
+	     cleanWs()
+	  }
+	 }
+	
+	  stage ("Git Repo") {
+	    steps {
+	      git url: "", credentialsId: "github", branch: "main"    # credentialsId is the id that we have added in Credentials in jenkins.
+	  }
+	  }
+
+          stage ("Build Application") {
+	    steps {
+	     sh 'mvn clean package'
 	  }
 	}
 	
-	stage ("Git Repo") {
-	  steps {
-	    git url: "", credentialsId: "github", branch: "main"    # credentialsId is the id that we have added in Credentials in jenkins.
+	  stage ("Test Application") {
+	    steps {
+	      sh 'mvn test'
 	  }
-	}
-	
-	stage ("Build Application") {
-	  steps {
-	    sh 'mvn clean package'
 	  }
-	}
-	
-	stage ("Test Application") {
-	  steps {
-	    sh 'mvn test'
-	  }
-	}
-	**	  
-  }
-  }  
+          //	  
+          }
+          }   
 
  
 Step 4 : Install and Configure the SonarQube :
-         # Add these stages in above pipeline from **
+         # Add these stages in above pipeline from //
 		 
      1. For SonarQube we need t3.medium instance type.
      2. Along with SonarQube we will install Postgresql in this instance.
