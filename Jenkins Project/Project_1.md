@@ -68,7 +68,7 @@ pipeline {
 	}
 	**	  
   }
-}  
+  }  
 
  
 Step 4 : Install and Configure the SonarQube :
