@@ -62,7 +62,7 @@
 	4. Create an Jenkins Maven Project - Add git repo - In post build action - Send build 
 		 artifact over ssh - source file - *.war - Remote Directory - //Opt//Docker  (// Necessory)
 	5. cd Docker 
-        6. ls - The war file will be copied here.		   
+6. ls - The war file will be copied here.		   
 		   
 		  
 # Step 6 : Install and Configure Docker on Ansible Server :
@@ -87,7 +87,7 @@
                     - name: Create docker image 
                       command: docker build -t image_name:latest .
                       args:
-					               chdir: /opt/Docker
+			chdir: /opt/Docker
                      
                     - name: Tag the given image 
                       command: docker tag image_name:latest dockerhubId:image_name:latest 
@@ -97,11 +97,13 @@
 
 
 # Step 8 : Update Jenkins job to use ansible playbook :
-              In jenkins under post build section of the above job add under exec command - ansible-playbook /opt/Docker/playbook.yml
+              In jenkins under post build section of the above job add under exec command - ansible-playbook 
+              /opt/Docker/playbook.yml
 
 
 # Step 9 : Setup bootstrap server for eksctl :			  
-          # Install AWS Cli on the above EC2 (Refer==https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+          # Install AWS Cli on the above EC2 (Refer==https://docs.aws.amazon.com/cli/latest/userguide/getting-started- 
+            install.html)
                1. curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
                2. unzip awscliv2.zip
                3. sudo ./aws/install
@@ -118,7 +120,8 @@
                4. kubectl version --output=yaml
 
           # Installing or eksctl (Refer==https://github.com/eksctl-io/eksctl/blob/main/README.md#installation)
-               1. curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+               1. curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname - 
+                  s)_amd64.tar.gz" | tar xz -C /tmp
                2. cd /tmp
                3. sudo mv /tmp/eksctl /bin   OR  $ sudo mv /tmp/eksctl /usr/local/bin
                4. eksctl version
@@ -154,7 +157,7 @@
                2. nano kube_deploy.yml
 
  # Yaml Files
- ---
+
   - hosts: kubernetes
     user: root
 
