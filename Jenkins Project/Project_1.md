@@ -250,6 +250,7 @@ Step 9 : ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD :
 
 
  Step 10 : Clean Up Cluster :
+ 
             kubectl get all
             kubectl delete deployment.apps/virtualtechbox-regapp       //it will delete the deployment
             kubectl delete service/virtualtechbox-service              //it will delete the service
