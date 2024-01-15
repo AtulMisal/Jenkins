@@ -152,6 +152,7 @@
           Create Ansible Playbook to Run Deployment and Service Manifest files
                1. mv regapp.yml creat_image_regapp.yml 
                2. nano kube_deploy.yml
+
 ---
 - hosts: kubernetes
   user: root
