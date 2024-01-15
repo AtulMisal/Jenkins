@@ -191,3 +191,30 @@ Step 7 : Setup Bootstrap Server for eksctl and Setup Kubernetes using eksctl :
           7. pip3 install --user awscli
           8. sudo ln -s $HOME/.local/bin/aws /usr/bin/aws
           9. aws --version		       
+
+Step 8 : ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD :
+         
+	 1. Installing kubectl
+            Refer--https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
+         2. sudo su
+         3. curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.27.1/2023-04-19/bin/linux/amd64/kubectl
+         4. ll , $ chmod +x ./kubectl  //Gave executable permisions
+         5. mv kubectl /bin   //Because all our executable files are in /bin
+         6. kubectl version --output=yaml
+
+         7. Installing  eksctl
+            Refer---https://github.com/eksctl-io/eksctl/blob/main/README.md#installation
+         8. curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+         9. cd /tmp
+        10. ll
+        11. sudo mv /tmp/eksctl /bin
+        12. eksctl version
+
+        13. Setup Kubernetes using eksctl
+            Refer--https://github.com/aws-samples/eks-workshop/issues/734
+        14. eksctl create cluster --name virtualtechbox-cluster \
+            --region ap-south-1 \
+            --node-type t2.small \
+            --nodes 3 \
+
+        15. kubectl get nodes
