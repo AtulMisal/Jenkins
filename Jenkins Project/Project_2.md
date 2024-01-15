@@ -139,7 +139,7 @@
 
 
 # Step 12 : Create ansible playbook to run deployment & service yml file :
-			         1. passwd root
+	       1. passwd root
                2. nano /etc/ansible/hosts
                   [ansible]
                   localhost
@@ -154,7 +154,7 @@
                2. nano kube_deploy.yml
 
 # ---
-  - hosts: kubernetes
+# - hosts: kubernetes
     user: root
 
     tasks:
