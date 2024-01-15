@@ -176,3 +176,18 @@ Step 6 : Build & Push Docker Image using Pipeline Script :
             1. Install docker plugins in jenkins - docker, docker commons, docker pipeline, docker api, docker build step, 
                cloud bees docker build & publish.
             2. Here will upload the docker image on docker hub. Using pipeline commands.
+
+
+Step 7 : Setup Bootstrap Server for eksctl and Setup Kubernetes using eksctl :
+          
+	  1. Install AWS Cli on the above EC2
+             Refer--https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+          2. sudo su
+          3. curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          4. apt install unzip,   $ unzip awscliv2.zip
+          5. sudo ./aws/install
+               OR
+          6. sudo yum remove -y aws-cli
+          7. pip3 install --user awscli
+          8. sudo ln -s $HOME/.local/bin/aws /usr/bin/aws
+          9. aws --version		       
