@@ -153,8 +153,9 @@
                1. mv regapp.yml creat_image_regapp.yml 
                2. nano kube_deploy.yml
 
-# ---
-# - hosts: kubernetes
+ # Yaml Files
+ ---
+  - hosts: kubernetes
     user: root
 
     tasks:
