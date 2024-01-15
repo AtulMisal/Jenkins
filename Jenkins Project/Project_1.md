@@ -161,6 +161,7 @@ Step 4 : Install and Configure the SonarQube :
            sudo tail -f /opt/sonarqube/logs/sonar.log
 
 Step 5 : Integrate Sonarqube with Jenkins :
+
         #   1. First generate the sonarqube token as :
                    My Account -> Security -> Generate Token
             2. Create an Credentials i Jenkins for Sonarqube with private text.
