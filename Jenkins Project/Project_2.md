@@ -30,7 +30,7 @@
 
 
 # Step 3 : Install Maven plugin & Integrate with Jenkins :		   
-            1. Install maven plugin.
+        1. Install maven plugin.
 	    2. Create an Maven project in Jenkins and use the repo https://github.com/Ashfaque-9x/registration-app.git
 	    3. By running this project an war file will be created.
 	    4. By uploading this war file to server our application will run.
@@ -48,9 +48,9 @@
 	    8. service sshd reload 
 	    9. sudo su - ansadmin
 	    10. sudo apt update
-            11. sudo apt install software-properties-common
-            12. sudo add-apt-repository --yes --update ppa:ansible/ansible
-            13. sudo apt install ansible
+        11. sudo apt install software-properties-common
+        12. sudo add-apt-repository --yes --update ppa:ansible/ansible
+        13. sudo apt install ansible
 		   
 
 # Step 5 : Integrating Ansible with Jenkins :
