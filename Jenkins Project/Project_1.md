@@ -248,4 +248,12 @@ Step 9 : ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD :
                argocd cluster add i-08b9d0ff0409f48e7@virtualtechbox-cluster.ap-south-1.eksctl.io --name virtualtechbox-eks-cluster
         13) kubectl get svc	
 
- 
+
+ Step 10 : Clean Up Cluster :
+            kubectl get all
+            kubectl delete deployment.apps/virtualtechbox-regapp       //it will delete the deployment
+            kubectl delete service/virtualtechbox-service              //it will delete the service
+            eksctl delete cluster virtualtechbox --region ap-south-1     OR    eksctl delete cluster --region=ap-south-1 --name=virtualtechbox-cluster      
+	    //it will delete the EKS 
+            cluster	
+
