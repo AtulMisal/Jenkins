@@ -170,3 +170,9 @@ Step 5 : Integrate Sonarqube with Jenkins :
             4. Configure Sonarqube in Jenkins. 
                   Manage Jenkins -> System -> Sonarqube
             5. Configure Sonarqube Scanner.     
+
+Step 6 : Build & Push Docker Image using Pipeline Script :
+
+            1. Install docker plugins in jenkins - docker, docker commons, docker pipeline, docker api, docker build step, 
+               cloud bees docker build & publish.
+	    2. Here will upload the docker image on docker hub. Using pipeline commands.
