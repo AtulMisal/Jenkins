@@ -158,18 +158,18 @@
 
  # Yaml Files
 
-  - hosts: kubernetes
-    user: root
+       - hosts: kubernetes
+         user: root
 
-    tasks:
-      - name: deploy regapp on kubernetes
-        command: kubectl apply -f regapp-deployment.yml
+         tasks:
+          - name: deploy regapp on kubernetes
+            command: kubectl apply -f regapp-deployment.yml
 
-      - name: create service for regapp
-        command: kubectl apply -f regapp-service.yml
+          - name: create service for regapp
+           command: kubectl apply -f regapp-service.yml
 
-      - name: update deployment with new pods if image updated in docker hub
-        command: kubectl rollout restart deployment.apps/virtualtechbox-regapp
+         - name: update deployment with new pods if image updated in docker hub
+           command: kubectl rollout restart deployment.apps/virtualtechbox-regapp
 
 
 # Step 13 :  Create Jenkins Deployment Job for Kubernetes :
