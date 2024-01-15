@@ -54,15 +54,15 @@
 		   
 
 # Step 5 : Integrating Ansible with Jenkins :
-		        1. In Manage Jenkins - System - Publish over SSH - Add - Provide name - Hostname - Username (That you created)
-		           step 2 - Check the box Use Password Authentication (Password Step 3) - click on Apply. 
-		        2. On Ansible Server create an folder called Docker. mkdir Docker 
-		        3. Change permissions as 
-		            chown ansadmin:ansadmin Docker
-		       4. Create an Jenkins Maven Project - Add git repo - In post build action - Send build 
-		          artifact over ssh - source file - *.war - Remote Directory - //Opt//Docker  (// Necessory)
-		       5. cd Docker 
-           6. ls - The war file will be copied here.		   
+	1. In Manage Jenkins - System - Publish over SSH - Add - Provide name - Hostname - Username (That you created)
+	   step 2 - Check the box Use Password Authentication (Password Step 3) - click on Apply. 
+	2. On Ansible Server create an folder called Docker. mkdir Docker 
+	3. Change permissions as 
+		chown ansadmin:ansadmin Docker
+	4. Create an Jenkins Maven Project - Add git repo - In post build action - Send build 
+		 artifact over ssh - source file - *.war - Remote Directory - //Opt//Docker  (// Necessory)
+	5. cd Docker 
+        6. ls - The war file will be copied here.		   
 		   
 		  
 # Step 6 : Install and Configure Docker on Ansible Server :
