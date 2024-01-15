@@ -6,48 +6,48 @@
 
 # Step 2 : Install and Configure the Maven
             1. On same server will install maven.
-			      2. For this we need java 8 or above version.
-			      3. cd opt/
-		      	4. wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
-			      5. tar -xvf apache-maven-3.9.6-bin.tar.gz
-			      6. mv apache-maven-3.9.6-bin.tar.gz maven 
-			      7. cd maven/bin/
-			      8. ./mvn -v 
-			      9. As this maven is not accessible from outside this folder, will add in bash_profile file as 
-		       10. cd ~
-		       11. ll -a 
-		       12. vi .bash_profile
-		       13. Add these below lines -
-		              M2_HOME=/opt/maven 
-				          M2=/opt/maven/bin
-				          JAVA_HOME=**
-		       14. To find which java version is installed 
+	    2. For this we need java 8 or above version.
+	    3. cd opt/
+	    4. wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+	    5. tar -xvf apache-maven-3.9.6-bin.tar.gz
+	    6. mv apache-maven-3.9.6-bin.tar.gz maven 
+	    7. cd maven/bin/
+	    8. ./mvn -v 
+	    9. As this maven is not accessible from outside this folder, will add in bash_profile file as 
+	   10. cd ~
+	   11. ll -a 
+	   12. vi .bash_profile
+	   13. Add these below lines -
+		  M2_HOME=/opt/maven 
+		  M2=/opt/maven/bin
+		  JAVA_HOME=**
+	   14. To find which java version is installed 
                   find / -name java-11*
-		       15. Copy this path to **		  
-		       16. In below line in that file which starts from path 
+	   15. Copy this path to **		  
+	   16. In below line in that file which starts from path 
                    PATH=$PATH:$HOME/bin:$JAVA_HOME:$M2_HOME:$M2
            17. source .bash_profile	
 
 
 # Step 3 : Install Maven plugin & Integrate with Jenkins :		   
             1. Install maven plugin.
-			      2. Create an Maven project in Jenkins and use the repo https://github.com/Ashfaque-9x/registration-app.git
-			      3. By running this project an war file will be created.
-			      4. By uploading this war file to server our application will run.
+	    2. Create an Maven project in Jenkins and use the repo https://github.com/Ashfaque-9x/registration-app.git
+	    3. By running this project an war file will be created.
+	    4. By uploading this war file to server our application will run.
 			
 
 # Step 4 : Ansible Server Setup and Ansible Installation
          Use Train with Shubham Channel for Ansible & Node Installation.
-		        1. Create an new EC2 server with free tier eligible.
-			      2. useradd ansadmin
-		      	3. passwd ansadmin
-			      4. Add this user to visudo file.
-			      5. To go to last line in vi file use shift+G
-			      6. ansadmin ALL=(ALL) NOPASSWD: All
-			      7. vi etc/ssh/sshd_config  Uncomment two lines. Permit Root Login & Pass Authentication
-			      8. service sshd reload 
-			      9. sudo su - ansadmin
-		        10. sudo apt update
+	    1. Create an new EC2 server with free tier eligible.
+	    2. useradd ansadmin
+	    3. passwd ansadmin
+	    4. Add this user to visudo file.
+	    5. To go to last line in vi file use shift+G
+	    6. ansadmin ALL=(ALL) NOPASSWD: All
+	    7. vi etc/ssh/sshd_config  Uncomment two lines. Permit Root Login & Pass Authentication
+	    8. service sshd reload 
+	    9. sudo su - ansadmin
+	    10. sudo apt update
             11. sudo apt install software-properties-common
             12. sudo add-apt-repository --yes --update ppa:ansible/ansible
             13. sudo apt install ansible
