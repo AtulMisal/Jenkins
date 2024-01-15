@@ -5,7 +5,7 @@
 
 
 # Step 2 : Install and Configure the Maven
-            1. On same server will install maven.
+        1. On same server will install maven.
 	    2. For this we need java 8 or above version.
 	    3. cd opt/
 	    4. wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
